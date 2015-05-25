@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta http-equiv="Cotent-Type" content="text/html; charset=utf-8" />
+        <title></title>
+        <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            ul {
+                list-style: none;
+            }
+            input[type="submit"]:hover {
+                color: #FFFFFF;
+                background-color: #DCDCDC;
+            }
+               
+        </style>
+    </head>
+
+    <body style="">
+        <div id="header" style="border-bottom: 1px groove; background-color: #00CED1">
+            <h1 style="text-align: center;">
+                <i style="color: #FFFFFF";>
+                    <ul style="pading-right: 50px;" id="ul">
+                        <li>Junmin Gu</li>
+                            <ul>
+                                <li style="padding-left: 150px;">--translator(en-ch)</li>
+                            </ul>
+                    </ul>
+                </i>
+            </h1>
+        </div>
+        <div id="content">
+            <table >
+                <tr>
+                    <td>
+                         <form method="post">
+                            <textarea name="words" rows=15/></textarea>
+                        <input type="submit" value="translate" style="position: absolute; background-color: #DCDCDC;"/>
+                        </form>
+                    </td>
+            		<td>
+                        {% macro fun(comment) %}
+                        <li>{{ comment }}</li>
+                        {% endmacro %}
+                       <ul style="padding: 40px;">
+                           <li>&nbsp;</li>
+                           <li>&nbsp;</li>
+                           <li>{{ session['words'] }}</li>
+                            <ul style="padding: 50px;">
+                                <li>{{ session['result'] }}</li>
+                                <ul style="padding: 50px;">
+                                    {% for comment in session['results'] %}
+                                        {{ fun(comment) }}
+                                    {% endfor %}
+                                </ul>
+                            <ul>
+                      </ul>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
