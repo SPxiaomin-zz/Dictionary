@@ -27,8 +27,11 @@ def home():
         result = target["translateResult"][0][0]['tgt']
         session['words'] = words.decode('utf-8')
         session['result'] = result
-        results = target["smartResult"]["entries"]
-        session['results'] = results
+        session['has'] = False
+        if 'smartResult' in target:
+            session['has'] = True
+            results = target["smartResult"]["entries"]
+            session['results'] = results
     return render_template('dic.html')
 
 
