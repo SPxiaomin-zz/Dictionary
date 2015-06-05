@@ -54,9 +54,11 @@
                             <ul style="padding: 50px;">
                                 <li>{{ session['result'] }}</li>
                                 <ul style="padding: 50px;">
+                                    {% if session.has %}
                                     {% for comment in session['results'] %}
                                         {{ fun(comment) }}
                                     {% endfor %}
+                                    {% endif %}
                                 </ul>
                             <ul>
                       </ul>
